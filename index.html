@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Макс Сервис — автосервис в Ярославле</title>
+
+<meta name="description" content="Макс Сервис — автосервис в Ярославле. Обслуживание и ремонт автомобилей. Запись на обслуживание.">
+
+<style>
+:root{
+    --bg:#080a0f;
+    --card:#11151d;
+    --card2:#171c25;
+    --text:#f5f7fa;
+    --muted:#9ba4b2;
+    --accent:#ff5a1f;
+    --accent2:#ff7b3d;
+    --line:rgba(255,255,255,.08);
+    --success:#35d07f;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    background:
+        radial-gradient(circle at 80% 10%,rgba(255,90,31,.15),transparent 30%),
+        radial-gradient(circle at 10% 30%,rgba(255,90,31,.08),transparent 25%),
+        var(--bg);
+    color:var(--text);
+    line-height:1.6;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+button,
+input,
+textarea,
+select{
+    font:inherit;
+}
+
+.container{
+    width:min(1120px,calc(100% - 32px));
+    margin:auto;
+}
+
+/* HEADER */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    background:rgba(8,10,15,.78);
+    backdrop-filter:blur(18px);
+    border-bottom:1px solid var(--line);
+}
+
+.nav{
+    height:72px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:20px;
+    font-weight:800;
+}
+
+.logo-icon{
+    width:40px;
+    height:40px;
+    display:grid;
+    place-items:center;
+    border-radius:12px;
+    background:linear-gradient(135deg,var(--accent),#ff8a4d);
+    box-shadow:0 8px 30px rgba(255,90,31,.25);
+}
+
+.nav-links{
+    display:flex;
+    gap:28px;
+    color:#c6ccd5;
+    font-size:14px;
+}
+
+.nav-links a{
+    transition:.25s;
+}
+
+.nav-links a:hover{
+    color:#fff;
+}
+
+.nav-btn{
+    background:var(--accent);
+    padding:11px 18px;
+    border-radius:12px;
+    font-size:14px;
+    font-weight:700;
+    transition:.25s;
+}
+
+.nav-btn:hover{
+    background:var(--accent2);
+    transform:translateY(-2px);
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    padding:150px 0 80px;
+    display:flex;
+    align-items:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.hero-grid{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:60px;
+    align-items:center;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 13px;
+    border:1px solid rgba(255,90,31,.3);
+    background:rgba(255,90,31,.08);
+    color:#ff9a6b;
+    border-radius:999px;
+    font-size:13px;
+    margin-bottom:22px;
+}
+
+.badge-dot{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--success);
+    box-shadow:0 0 10px var(--success);
+}
+
+h1{
+    font-size:clamp(42px,6vw,76px);
+    line-height:1.02;
+    letter-spacing:-3px;
+    margin-bottom:24px;
+}
+
+.gradient{
+    color:var(--accent);
+}
+
+.hero-text{
+    color:var(--muted);
+    font-size:18px;
+    max-width:600px;
+    margin-bottom:34px;
+}
+
+.hero-buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:9px;
+    min-height:52px;
+    padding:0 22px;
+    border-radius:14px;
+    font-weight:700;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.btn-primary{
+    background:var(--accent);
+    color:#fff;
+    box-shadow:0 15px 40px rgba(255,90,31,.2);
+}
+
+.btn-primary:hover{
+    background:var(--accent2);
+    transform:translateY(-3px);
+}
+
+.btn-secondary{
+    background:rgba(255,255,255,.04);
+    border-color:var(--line);
+}
+
+.btn-secondary:hover{
+    background:rgba(255,255,255,.08);
+}
+
+/* CAR */
+
+.car-card{
+    position:relative;
+    min-height:500px;
+    border-radius:30px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    background:
+        linear-gradient(145deg,rgba(255,90,31,.15),rgba(255,255,255,.02)),
+        var(--card);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.car-art{
+    width:86%;
+    height:300px;
+    position:relative;
+    transform:skewY(-3deg);
+}
+
+.car-body{
+    position:absolute;
+    left:5%;
+    right:5%;
+    bottom:75px;
+    height:130px;
+    background:linear-gradient(145deg,#343b47,#151922);
+    border-radius:80px 100px 35px 35px;
+    box-shadow:
+        0 30px 50px rgba(0,0,0,.5),
+        inset 0 4px 10px rgba(255,255,255,.08);
+}
+
+.car-roof{
+    position:absolute;
+    left:24%;
+    top:-70px;
+    width:48%;
+    height:100px;
+    background:linear-gradient(145deg,#303744,#151922);
+    border-radius:100px 100px 10px 10px;
+}
+
+.window{
+    position:absolute;
+    top:15px;
+    width:38%;
+    height:55px;
+    background:linear-gradient(135deg,#26384a,#0a111b);
+    border:2px solid rgba(255,255,255,.08);
+}
+
+.window.left{
+    left:5%;
+    border-radius:45px 10px 10px 10px;
+}
+
+.window.right{
+    right:5%;
+    border-radius:10px 45px 10px 10px;
+}
+
+.wheel{
+    position:absolute;
+    bottom:-28px;
+    width:72px;
+    height:72px;
+    background:#080a0f;
+    border:14px solid #252b35;
+    border-radius:50%;
+    box-shadow:0 5px 15px rgba(0,0,0,.7);
+}
+
+.wheel.left{
+    left:16%;
+}
+
+.wheel.right{
+    right:16%;
+}
+
+.light{
+    position:absolute;
+    right:3%;
+    top:45px;
+    width:30px;
+    height:18px;
+    border-radius:5px 15px 15px 5px;
+    background:#ffb27f;
+    box-shadow:0 0 25px rgba(255,178,127,.7);
+}
+
+.car-label{
+    position:absolute;
+    bottom:25px;
+    left:25px;
+    right:25px;
+    display:flex;
+    justify-content:space-between;
+    color:#aeb6c2;
+    font-size:13px;
+}
+
+/* SECTIONS */
+
+section{
+    padding:100px 0;
+}
+
+.section-head{
+    max-width:700px;
+    margin-bottom:48px;
+}
+
+.eyebrow{
+    color:var(--accent);
+    text-transform:uppercase;
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:2px;
+    margin-bottom:12px;
+}
+
+h2{
+    font-size:clamp(32px,5vw,52px);
+    line-height:1.1;
+    letter-spacing:-1.5px;
+    margin-bottom:16px;
+}
+
+.section-description{
+    color:var(--muted);
+    font-size:17px;
+}
+
+/* SERVICES */
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.service{
+    padding:28px;
+    background:linear-gradient(145deg,var(--card2),var(--card));
+    border:1px solid var(--line);
+    border-radius:22px;
+    transition:.3s;
+}
+
+.service:hover{
+    transform:translateY(-7px);
+    border-color:rgba(255,90,31,.35);
+    box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
+
+.service-icon{
+    width:52px;
+    height:52px;
+    display:grid;
+    place-items:center;
+    background:rgba(255,90,31,.1);
+    border-radius:15px;
+    font-size:25px;
+    margin-bottom:22px;
+}
+
+.service h3{
+    font-size:20px;
+    margin-bottom:10px;
+}
+
+.service p{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* FEATURES */
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.feature{
+    padding:25px;
+    border:1px solid var(--line);
+    border-radius:20px;
+    background:rgba(255,255,255,.025);
+}
+
+.feature strong{
+    display:block;
+    font-size:18px;
+    margin-bottom:7px;
+}
+
+.feature span{
+    color:var(--muted);
+    font-size:14px;
+}
+
+/* CTA */
+
+.cta{
+    background:
+        radial-gradient(circle at 80% 50%,rgba(255,90,31,.22),transparent 35%),
+        linear-gradient(135deg,#151922,#0c0f15);
+    border:1px solid var(--line);
+    border-radius:30px;
+    padding:60px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:40px;
+}
+
+.cta p{
+    color:var(--muted);
+    max-width:600px;
+}
+
+/* CONTACTS */
+
+.contact-grid{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:25px;
+}
+
+.contact-info{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+}
+
+.contact-card{
+    padding:24px;
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:20px;
+}
+
+.contact-card small{
+    display:block;
+    color:var(--muted);
+    margin-bottom:6px;
+}
+
+.contact-card strong{
+    font-size:17px;
+}
+
+.form{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:25px;
+    padding:30px;
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:14px;
+}
+
+.field{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.field.full{
+    grid-column:1/-1;
+}
+
+label{
+    color:#c4cad3;
+    font-size:13px;
+}
+
+input,
+textarea,
+select{
+    width:100%;
+    background:#0b0e14;
+    border:1px solid var(--line);
+    color:#fff;
+    padding:14px 15px;
+    border-radius:12px;
+    outline:none;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+    border-color:rgba(255,90,31,.6);
+}
+
+textarea{
+    min-height:110px;
+    resize:vertical;
+}
+
+.form button{
+    width:100%;
+    margin-top:15px;
+}
+
+/* MAP */
+
+.map{
+    margin-top:25px;
+    height:300px;
+    border-radius:25px;
+    overflow:hidden;
+    border:1px solid var(--line);
+    background:
+        linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px),
+        #10141b;
+    background-size:40px 40px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:20px;
+}
+
+.map-content{
+    max-width:450px;
+}
+
+.map-pin{
+    font-size:42px;
+    margin-bottom:10px;
+}
+
+/* FOOTER */
+
+footer{
+    border-top:1px solid var(--line);
+    padding:35px 0;
+    color:var(--muted);
+}
+
+.footer-inner{
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    align-items:center;
+}
+
+.footer-brand{
+    color:#fff;
+    font-weight:800;
+}
+
+/* MOBILE */
+
+.mobile-menu{
+    display:none;
+    background:none;
+    border:0;
+    color:#fff;
+    font-size:27px;
+    cursor:pointer;
+}
+
+@media(max-width:850px){
+
+    .nav-links{
+        display:none;
+        position:absolute;
+        top:72px;
+        left:0;
+        width:100%;
+        background:#0b0e14;
+        padding:20px;
+        flex-direction:column;
+        border-bottom:1px solid var(--line);
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .mobile-menu{
+        display:block;
+    }
+
+    .nav-btn{
+        display:none;
+    }
+
+    .hero{
+        padding-top:120px;
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+    }
+
+    .car-card{
+        min-height:380px;
+    }
+
+    .services{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .features{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+
+    .cta{
+        padding:35px 25px;
+        flex-direction:column;
+        align-items:flex-start;
+    }
+}
+
+@media(max-width:550px){
+
+    .container{
+        width:min(100% - 22px,1120px);
+    }
+
+    section{
+        padding:75px 0;
+    }
+
+    h1{
+        font-size:46px;
+        letter-spacing:-2px;
+    }
+
+    .hero-text{
+        font-size:16px;
+    }
+
+    .hero-buttons{
+        flex-direction:column;
+    }
+
+    .btn{
+        width:100%;
+    }
+
+    .services{
+        grid-template-columns:1fr;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    .field.full{
+        grid-column:auto;
+    }
+
+    .car-card{
+        min-height:320px;
+    }
+
+    .car-art{
+        transform:scale(.8) skewY(-3deg);
+    }
+
+    .footer-inner{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container nav">
+
+        <a href="#home" class="logo">
+            <span class="logo-icon">🔧</span>
+            <span>МАКС СЕРВИС</span>
+        </a>
+
+        <nav class="nav-links" id="navLinks">
+            <a href="#services">Услуги</a>
+            <a href="#about">О сервисе</a>
+            <a href="#contacts">Контакты</a>
+        </nav>
+
+        <a href="#contacts" class="nav-btn">Записаться</a>
+
+        <button class="mobile-menu" onclick="toggleMenu()" aria-label="Меню">
+            ☰
+        </button>
+
+    </div>
+</header>
+
+
+<main>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+    <div class="container hero-grid">
+
+        <div>
+
+            <div class="badge">
+                <span class="badge-dot"></span>
+                Автосервис в Ярославле
+            </div>
+
+            <h1>
+                Ваш автомобиль<br>
+                в <span class="gradient">надёжных руках</span>
+            </h1>
+
+            <p class="hero-text">
+                «Макс Сервис» — место, где автомобилю уделяют внимание.
+                Диагностика, обслуживание и ремонт — с вниманием к деталям.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#contacts" class="btn btn-primary">
+                    📅 Записаться на обслуживание
+                </a>
+
+                <a href="#services" class="btn btn-secondary">
+                    🔧 Посмотреть услуги
+                </a>
+            </div>
+
+        </div>
+
+
+        <div class="car-card">
+
+            <div class="car-art">
+
+                <div class="car-roof">
+                    <div class="window left"></div>
+                    <div class="window right"></div>
+                </div>
+
+                <div class="car-body">
+                    <div class="light"></div>
+                </div>
+
+                <div class="wheel left"></div>
+                <div class="wheel right"></div>
+
+            </div>
+
+            <div class="car-label">
+                <span>МАКС СЕРВИС</span>
+                <span>ЯРОСЛАВЛЬ</span>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- SERVICES -->
+
+<section id="services">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div class="eyebrow">Наши услуги</div>
+
+            <h2>
+                Всё необходимое<br>
+                для вашего автомобиля
+            </h2>
+
+            <p class="section-description">
+                Подберём подходящий вариант обслуживания под ваш автомобиль
+                и задачу. Точный перечень услуг и стоимость уточняйте у специалистов.
+            </p>
+
+        </div>
+
+
+        <div class="services">
+
+            <div class="service">
+                <div class="service-icon">🔍</div>
+                <h3>Диагностика</h3>
+                <p>
+                    Поможем определить причину неисправности
+                    и найти оптимальное решение проблемы.
+                </p>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">🔧</div>
+                <h3>Ремонт автомобиля</h3>
+                <p>
+                    Обслуживание и ремонт автомобиля
+                    с учётом особенностей конкретной модели.
+                </p>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">⚙️</div>
+                <h3>Техническое обслуживание</h3>
+                <p>
+                    Помощь в поддержании автомобиля
+                    в исправном и безопасном состоянии.
+                </p>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">🛞</div>
+                <h3>Ходовая часть</h3>
+                <p>
+                    Проверка и обслуживание элементов
+                    подвески и ходовой части автомобиля.
+                </p>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">🛢️</div>
+                <h3>Замена технических жидкостей</h3>
+                <p>
+                    Обслуживание автомобиля и замена
+                    необходимых расходных материалов.
+                </p>
+            </div>
+
+            <div class="service">
+                <div class="service-icon">🚗</div>
+                <h3>Другие работы</h3>
+                <p>
+                    Свяжитесь с нами, чтобы уточнить,
+                    можем ли мы помочь с вашей задачей.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div class="eyebrow">Почему мы</div>
+
+            <h2>
+                Сервис, которому<br>
+                можно доверять
+            </h2>
+
+            <p class="section-description">
+                Наша задача — сделать обслуживание автомобиля
+                понятным, удобным и максимально комфортным для клиента.
+            </p>
+
+        </div>
+
+
+        <div class="features">
+
+            <div class="feature">
+                <strong>🔧 Внимание к деталям</strong>
+                <span>
+                    Подходим к каждой задаче индивидуально.
+                </span>
+            </div>
+
+            <div class="feature">
+                <strong>💬 Понятное общение</strong>
+                <span>
+                    Объясняем клиенту, что необходимо сделать.
+                </span>
+            </div>
+
+            <div class="feature">
+                <strong>🚗 Индивидуальный подход</strong>
+                <span>
+                    Учитываем особенности автомобиля и задачи владельца.
+                </span>
+            </div>
+
+            <div class="feature">
+                <strong>📍 Удобное расположение</strong>
+                <span>
+                    Мы находимся в Ярославле.
+                </span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section>
+
+    <div class="container">
+
+        <div class="cta">
+
+            <div>
+
+                <div class="eyebrow">Запись на обслуживание</div>
+
+                <h2>
+                    Есть проблема с автомобилем?
+                </h2>
+
+                <p>
+                    Оставьте заявку — свяжитесь с нами удобным способом
+                    и уточните возможность ремонта или обслуживания.
+                </p>
+
+            </div>
+
+            <a href="#contacts" class="btn btn-primary">
+                Оставить заявку →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACTS -->
+
+<section id="contacts">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div class="eyebrow">Контакты</div>
+
+            <h2>
+                Как нас найти
+            </h2>
+
+            <p class="section-description">
+                Свяжитесь с сервисом или проложите маршрут до нашего адреса.
+            </p>
+
+        </div>
+
+
+        <div class="contact-grid">
+
+
+            <div class="contact-info">
+
+                <div class="contact-card">
+                    <small>📍 Адрес</small>
+                    <strong>
+                        Ярославль,<br>
+                        Мышкинский проезд, 11
+                    </strong>
+                </div>
+
+
+                <div class="contact-card">
+                    <small>🏢 Компания</small>
+                    <strong>
+                        Макс Сервис
+                    </strong>
+                </div>
+
+
+                <div class="contact-card">
+                    <small>🗺️ Карта</small>
+
+                    <a
+                        href="https://yandex.ru/maps/org/maks_servis/241098655087/"
+                        target="_blank"
+                        rel="noopener"
+                        class="btn btn-secondary"
+                        style="margin-top:12px;width:100%;"
+                    >
+                        Открыть в Яндекс Картах →
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="form">
+
+                <h3 style="font-size:24px;margin-bottom:8px;">
+                    Оставить заявку
+                </h3>
+
+                <p style="color:var(--muted);font-size:14px;margin-bottom:25px;">
+                    Заполните форму. Для демо-версии сайта заявка
+                    выводится на экран.
+                </p>
+
+
+                <form onsubmit="sendForm(event)">
+
+                    <div class="form-grid">
+
+                        <div class="field">
+                            <label>Ваше имя</label>
+                            <input
+                                type="text"
+                                id="name"
+                                placeholder="Иван"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="field">
+                            <label>Телефон</label>
+                            <input
+                                type="tel"
+                                id="phone"
+                                placeholder="+7 (___) ___-__-__"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="field full">
+
+                            <label>Что нужно сделать?</label>
+
+                            <select id="service">
+
+                                <option value="Диагностика">
+                                    Диагностика
+                                </option>
+
+                                <option value="Ремонт">
+                                    Ремонт
+                                </option>
+
+                                <option value="Техническое обслуживание">
+                                    Техническое обслуживание
+                                </option>
+
+                                <option value="Ходовая часть">
+                                    Ходовая часть
+                                </option>
+
+                                <option value="Другое">
+                                    Другое
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="field full">
+
+                            <label>Комментарий</label>
+
+                            <textarea
+                                id="message"
+                                placeholder="Опишите проблему или задайте вопрос..."
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        Отправить заявку
+                    </button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <div class="map">
+
+            <div class="map-content">
+
+                <div class="map-pin">📍</div>
+
+                <h3>
+                    Макс Сервис
+                </h3>
+
+                <p style="color:var(--muted);margin:8px 0 20px;">
+                    Ярославль, Мышкинский проезд, 11
+                </p>
+
+                <a
+                    href="https://yandex.ru/maps/org/maks_servis/241098655087/"
+                    target="_blank"
+                    rel="noopener"
+                    class="btn btn-primary"
+                >
+                    Построить маршрут
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<footer>
+
+    <div class="container footer-inner">
+
+        <div>
+            <div class="footer-brand">
+                МАКС СЕРВИС
+            </div>
+
+            <div>
+                Автосервис в Ярославле
+            </div>
+        </div>
+
+        <div>
+            © <span id="year"></span> Макс Сервис
+        </div>
+
+    </div>
+
+</footer>
+
+
+<script>
+
+function toggleMenu(){
+
+    const menu = document.getElementById("navLinks");
+
+    menu.classList.toggle("active");
+
+}
+
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+
+    link.addEventListener("click", () => {
+
+        document
+            .getElementById("navLinks")
+            .classList.remove("active");
+
+    });
+
+});
+
+
+function sendForm(event){
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("name").value;
+
+    const phone =
+        document.getElementById("phone").value;
+
+    const service =
+        document.getElementById("service").value;
+
+    const message =
+        document.getElementById("message").value;
+
+
+    alert(
+        "Спасибо, " + name + "!\n\n" +
+        "Ваша заявка:\n" +
+        "Телефон: " + phone + "\n" +
+        "Услуга: " + service + "\n" +
+        "Комментарий: " +
+        (message || "не указан") +
+        "\n\n" +
+        "Это демонстрационная версия сайта."
+    );
+
+}
+
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
