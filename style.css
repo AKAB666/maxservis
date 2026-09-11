@@ -1,0 +1,387 @@
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    margin: 0;
+    background: #08090d;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+button {
+    font-family: inherit;
+    border: 0;
+    cursor: pointer;
+}
+
+.app {
+    width: 100%;
+    max-width: 600px;
+    min-height: 100vh;
+    margin: auto;
+    background:
+        radial-gradient(circle at top, #21112e 0%, #08090d 45%);
+    padding-bottom: 90px;
+}
+
+header {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 18px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: rgba(8, 9, 13, .92);
+    backdrop-filter: blur(15px);
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    font-size: 9px;
+    color: #a9a9b2;
+    letter-spacing: 3px;
+}
+
+.balance {
+    background: #18151f;
+    border: 1px solid #35283e;
+    padding: 10px 13px;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+main {
+    padding: 18px;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+.hero {
+    padding: 25px 20px;
+    border-radius: 25px;
+    margin-bottom: 25px;
+    background:
+        linear-gradient(135deg, #342047, #171020);
+    border: 1px solid #4a3158;
+}
+
+.hero-title {
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+.hero-text {
+    color: #b7acbf;
+}
+
+h1 {
+    margin-top: 15px;
+}
+
+h2 {
+    margin-bottom: 14px;
+}
+
+.games {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.game-card {
+    min-height: 150px;
+    padding: 18px;
+    border-radius: 22px;
+    color: white;
+    text-align: left;
+    background: #15141b;
+    border: 1px solid #2e2934;
+    transition: .15s;
+}
+
+.game-card:active {
+    transform: scale(.97);
+}
+
+.game-icon {
+    display: block;
+    font-size: 45px;
+    margin-bottom: 15px;
+}
+
+.game-card b {
+    display: block;
+    font-size: 18px;
+}
+
+.game-card small {
+    display: block;
+    color: #85818a;
+    margin-top: 5px;
+}
+
+.notice {
+    margin-top: 18px;
+    padding: 14px;
+    border-radius: 15px;
+    background: #121218;
+    color: #88838e;
+    font-size: 12px;
+    text-align: center;
+}
+
+.back {
+    background: #17151c;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 12px;
+}
+
+.slot-machine,
+.roulette,
+.dice-game,
+.jackpot-box {
+    margin-top: 20px;
+    background: #121117;
+    border: 1px solid #292530;
+    border-radius: 25px;
+    padding: 20px;
+    text-align: center;
+}
+
+.reels {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 15px 0 20px;
+}
+
+.reels div {
+    width: 85px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    background: #08090d;
+    border-radius: 18px;
+    border: 1px solid #3b3440;
+}
+
+.result {
+    min-height: 24px;
+    margin: 12px;
+    color: #c8c1ce;
+}
+
+.bet-box {
+    margin: 20px 0;
+}
+
+.bet-box label {
+    display: block;
+    color: #88838e;
+    margin-bottom: 10px;
+}
+
+.bet-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.bet-controls button {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #28232d;
+    color: white;
+    font-size: 22px;
+}
+
+.bet-controls span {
+    min-width: 80px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.main-button {
+    width: 100%;
+    padding: 17px;
+    border-radius: 16px;
+    color: white;
+    font-weight: 900;
+    font-size: 16px;
+    background: linear-gradient(135deg, #8e32ff, #e029ff);
+    box-shadow: 0 8px 30px rgba(164, 45, 255, .2);
+}
+
+.paytable {
+    margin-top: 15px;
+    padding: 15px;
+    background: #121117;
+    border-radius: 20px;
+    color: #aaa4ae;
+}
+
+.paytable h3 {
+    color: white;
+}
+
+.roulette-number {
+    width: 120px;
+    height: 120px;
+    margin: 10px auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #18151d;
+    border: 5px solid #4b4050;
+    font-size: 42px;
+    font-weight: 900;
+}
+
+.roulette-color {
+    margin-bottom: 20px;
+    color: #aaa4ae;
+}
+
+.roulette-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+}
+
+.roulette-buttons button {
+    padding: 14px 5px;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+}
+
+.red {
+    background: #a72d3b;
+}
+
+.black {
+    background: #29262d;
+}
+
+.green {
+    background: #19753f;
+}
+
+.dice-value {
+    font-size: 80px;
+    margin: 25px;
+}
+
+.dice-info {
+    color: #aaa4ae;
+    margin-bottom: 20px;
+}
+
+.dice-buttons {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.dice-buttons button {
+    padding: 18px;
+    border-radius: 15px;
+    background: #27222c;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.jackpot-value {
+    font-size: 32px;
+    font-weight: 900;
+    margin: 30px 0;
+}
+
+.jackpot-box p {
+    color: #aaa4ae;
+    margin-bottom: 25px;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    max-width: 600px;
+    height: 75px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    background: rgba(13, 12, 17, .96);
+    border-top: 1px solid #292530;
+    backdrop-filter: blur(15px);
+    z-index: 50;
+}
+
+.bottom-nav button {
+    background: transparent;
+    color: #8d8892;
+    font-size: 20px;
+}
+
+.bottom-nav span {
+    display: block;
+    margin-top: 4px;
+    font-size: 10px;
+}
+
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: 90px;
+    transform: translateX(-50%);
+    padding: 12px 18px;
+    border-radius: 14px;
+    background: #242029;
+    border: 1px solid #3c3443;
+    color: white;
+    opacity: 0;
+    pointer-events: none;
+    transition: .25s;
+    z-index: 100;
+}
+
+.toast.show {
+    opacity: 1;
+}
+
+@media (max-width: 380px) {
+
+    .reels div {
+        width: 72px;
+        height: 80px;
+        font-size: 40px;
+    }
+
+    .game-card {
+        min-height: 135px;
+    }
+}
