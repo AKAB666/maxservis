@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Lucky Casino — Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <header>
+        <div>
+            <div class="logo">LUCKY</div>
+            <div class="subtitle">CASINO DEMO</div>
+        </div>
+
+        <div class="balance">
+            🪙 <span id="balance">10 000</span>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HOME -->
+        <section id="home" class="page active">
+
+            <div class="hero">
+                <div class="hero-title">🎰 Lucky Casino</div>
+                <div class="hero-text">
+                    Играй в демо-режиме за виртуальные монеты
+                </div>
+            </div>
+
+            <h2>Игры</h2>
+
+            <div class="games">
+
+                <button class="game-card" onclick="openGame('slots')">
+                    <span class="game-icon">🎰</span>
+                    <b>Слоты</b>
+                    <small>Крути барабаны</small>
+                </button>
+
+                <button class="game-card" onclick="openGame('roulette')">
+                    <span class="game-icon">🎡</span>
+                    <b>Рулетка</b>
+                    <small>Красное / чёрное</small>
+                </button>
+
+                <button class="game-card" onclick="openGame('dice')">
+                    <span class="game-icon">🎲</span>
+                    <b>Кости</b>
+                    <small>Угадай число</small>
+                </button>
+
+                <button class="game-card" onclick="openGame('jackpot')">
+                    <span class="game-icon">💎</span>
+                    <b>Jackpot</b>
+                    <small>Большой приз</small>
+                </button>
+
+            </div>
+
+            <div class="notice">
+                ⚠️ Демо-версия. Используются только виртуальные монеты.
+            </div>
+
+        </section>
+
+
+        <!-- SLOTS -->
+        <section id="slots" class="page">
+
+            <button class="back" onclick="goHome()">← Назад</button>
+
+            <h1>🎰 Слоты</h1>
+
+            <div class="slot-machine">
+
+                <div class="reels">
+                    <div id="reel1">🍒</div>
+                    <div id="reel2">🍋</div>
+                    <div id="reel3">💎</div>
+                </div>
+
+                <div id="slotResult" class="result">
+                    Сделай ставку
+                </div>
+
+                <div class="bet-box">
+
+                    <label>Ставка</label>
+
+                    <div class="bet-controls">
+                        <button onclick="changeBet(-100)">−</button>
+                        <span id="slotBet">100</span>
+                        <button onclick="changeBet(100)">+</button>
+                    </div>
+
+                </div>
+
+                <button class="main-button" onclick="spinSlots()">
+                    КРУТИТЬ 🎰
+                </button>
+
+            </div>
+
+            <div class="paytable">
+                <h3>Выигрыши</h3>
+                <p>💎 💎 💎 — x20</p>
+                <p>7️⃣ 7️⃣ 7️⃣ — x15</p>
+                <p>🍒 🍒 🍒 — x8</p>
+                <p>🍋 🍋 🍋 — x5</p>
+                <p>🍊 🍊 🍊 — x3</p>
+            </div>
+
+        </section>
+
+
+        <!-- ROULETTE -->
+        <section id="roulette" class="page">
+
+            <button class="back" onclick="goHome()">← Назад</button>
+
+            <h1>🎡 Рулетка</h1>
+
+            <div class="roulette">
+
+                <div id="rouletteNumber" class="roulette-number">
+                    ?
+                </div>
+
+                <div id="rouletteColor" class="roulette-color">
+                    Сделай ставку
+                </div>
+
+                <div class="roulette-buttons">
+
+                    <button class="red" onclick="setRouletteBet('red')">
+                        🔴 Красное
+                    </button>
+
+                    <button class="black" onclick="setRouletteBet('black')">
+                        ⚫ Чёрное
+                    </button>
+
+                    <button class="green" onclick="setRouletteBet('green')">
+                        🟢 Зелёное
+                    </button>
+
+                </div>
+
+                <div class="bet-box">
+                    <label>Ставка</label>
+
+                    <div class="bet-controls">
+                        <button onclick="changeRouletteBet(-100)">−</button>
+                        <span id="rouletteBet">100</span>
+                        <button onclick="changeRouletteBet(100)">+</button>
+                    </div>
+                </div>
+
+                <button class="main-button" onclick="spinRoulette()">
+                    КРУТИТЬ
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- DICE -->
+        <section id="dice" class="page">
+
+            <button class="back" onclick="goHome()">← Назад</button>
+
+            <h1>🎲 Кости</h1>
+
+            <div class="dice-game">
+
+                <div id="diceValue" class="dice-value">
+                    🎲
+                </div>
+
+                <div class="dice-info">
+                    Угадай: выпадет больше или меньше 3
+                </div>
+
+                <div class="dice-buttons">
+
+                    <button onclick="playDice('low')">
+                        1–3
+                    </button>
+
+                    <button onclick="playDice('high')">
+                        4–6
+                    </button>
+
+                </div>
+
+                <div class="bet-box">
+                    <label>Ставка</label>
+
+                    <div class="bet-controls">
+                        <button onclick="changeDiceBet(-100)">−</button>
+                        <span id="diceBet">100</span>
+                        <button onclick="changeDiceBet(100)">+</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- JACKPOT -->
+        <section id="jackpot" class="page">
+
+            <button class="back" onclick="goHome()">← Назад</button>
+
+            <h1>💎 Jackpot</h1>
+
+            <div class="jackpot-box">
+
+                <div class="jackpot-value">
+                    🪙 <span id="jackpotValue">25 000</span>
+                </div>
+
+                <p>
+                    Испытай удачу и забери виртуальный Jackpot!
+                </p>
+
+                <button class="main-button" onclick="playJackpot()">
+                    ИСПЫТАТЬ УДАЧУ
+                </button>
+
+                <div id="jackpotResult" class="result">
+                    Стоимость попытки: 500 монет
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <nav class="bottom-nav">
+
+        <button onclick="goHome()">
+            🏠
+            <span>Главная</span>
+        </button>
+
+        <button onclick="openGame('slots')">
+            🎰
+            <span>Слоты</span>
+        </button>
+
+        <button onclick="openGame('roulette')">
+            🎡
+            <span>Рулетка</span>
+        </button>
+
+        <button onclick="openGame('dice')">
+            🎲
+            <span>Кости</span>
+        </button>
+
+    </nav>
+
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
